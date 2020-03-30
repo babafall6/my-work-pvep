@@ -11,10 +11,10 @@ def launch_analysis(data_file):
 			preview = file.readline()
 			print("Yeah! We managed to read the file. Here is a preview {}".format(preview))
 	except FileNotFoundError :
-		print("Oups! No file here.")
+		print("Oups! No file csv here.")
 
 
 
-if __name__ == '__main__':
+
+if __name__ == "__main__" :
 	launch_analysis('current_mps.csv')
-	
