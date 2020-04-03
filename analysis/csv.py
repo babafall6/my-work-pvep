@@ -12,7 +12,7 @@ import os
 # 		preview = file.readline()
 # 		print("Yeah! We managed to read the file. Here is a preview {}".format(preview))
 
-def launch_analysis(data_file, by_party = True):
+def launch_analysis(data_file, by_party = False, info = True):
 	
 	directory = os.path.dirname(os.path.dirname(__file__))
 	path_to_file = os.path.join(directory,'data',data_file)
@@ -24,6 +24,9 @@ def launch_analysis(data_file, by_party = True):
 	if by_party :
 		for party, s in o_sopm.split_by_political_party().items():
 			s.display_chart()
+
+	if info :
+		print(o_sopm)
 
 
 

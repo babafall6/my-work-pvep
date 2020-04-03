@@ -2,11 +2,19 @@
 #coding: utf-8
 import numpy as np
 import pandas as pd
+import matplotlib
+matplotlib.use('TkAgg')
+
 from matplotlib import pyplot as plt
+import seaborn as sns
+
 
 class SetOfParliamentMembers:
 	def __init__(self, name):
 		self.name = name
+
+	def __repr__(self):
+		return "Number of SetOfParrliamentMembers : {}".format(len(self.dataframe))
 
 	def data_from_csv(self, csv_file):
 		self.dataframe = pd.read_csv(csv_file, sep=";")
