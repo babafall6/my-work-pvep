@@ -3,6 +3,8 @@
 
 import logging as lg
 import argparse
+import re
+
 import analysis.csv as c_an
 import analysis.xml as x_an
 
@@ -30,11 +32,13 @@ if __name__ == "__main__":
 		lg.warning(e)
 	else:	
 		try:
+			e = re.search('^.+\.(\D{3})$', args.datafile)
+			extension = e.group(1)
 
-			if args.extension == 'xml':
+			if extension == 'xml':
 				#'xml/compteRendu/CRSANR5L15S2017E1N001.xml'
 				x_an.launch_analysis(datafile)
-			elif args.extension == 'csv':
+			elif extension == 'csv':
 				#'current_mps.csv'
 				c_an.launch_analysis(datafile,args.byparty, args.info) 
 
